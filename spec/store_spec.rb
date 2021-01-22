@@ -9,5 +9,9 @@ describe Store do
     it 'returns a hash' do
       expect(Store.new.inventory.class).to eq Hash
     end
+
+    it 'contains default items' do
+      expect(Store.new.inventory.first).to be true
+    end
   end
 end
