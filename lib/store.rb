@@ -1,4 +1,6 @@
 class Store
-  def initialize(args = {})
+  attr_accessor :inventory
+  def initialize(inventory = {})
+    @inventory = inventory
   end
 end
