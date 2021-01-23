@@ -11,7 +11,7 @@ describe Store do
     end
 
     it 'contains default items' do
-      expect(Store.new.inventory.first).to be true
+      expect(!!Store.new.inventory.first).to be true
     end
   end
 end
