@@ -1,23 +1,32 @@
 class Store
-  attr_accessor :items
+  attr_reader :items
   def initialize(items = {})
     @items = inventory.merge(items)
+  end
+
+  def items
+    inventory.map { |item, price| price.pounds  }
+    inventory
   end
 
   def inventory
     inventory = {
       milk:             0.5,
       cheese:           3.5,
-      bread:            1,
-      chicken:          5,
-      spinach:          1,
+      bread:            1.0,
+      chicken:          5.0,
+      spinach:          1.0,
       tomatoes:         0.8,
       eggs:             2.5,
-      steak:            10,
+      steak:            10.0,
       salmon:           6.5,
       onion:            0.25,
       cornflakes:       2.75,
-      ice_cream:        4
+      ice_cream:        4.0
     }
+  end
+
+  def price(item)
+    items[item.downcase.split.join('_').to_sym]
   end
 end

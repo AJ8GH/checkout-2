@@ -14,4 +14,11 @@ describe Store do
       expect(!!Store.new.items.first).to be true
     end
   end
+
+   context '#price' do
+     subject(:store) { Store.new }
+     it 'returns the price of item' do
+       expect(store.price('milk')).to eq store.items[:milk]
+     end
+   end
 end
