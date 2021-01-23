@@ -1,9 +1,28 @@
 describe Store do
   subject(:store) { Store.new }
+  let (:inventory) { {
+        milk:             0.5,
+        cheese:           3.5,
+        bread:            1.0,
+        chicken:          5.0,
+        spinach:          1.0,
+        tomatoes:         0.8,
+        eggs:             2.5,
+        steak:            10.0,
+        salmon:           6.5,
+        onion:            0.25,
+        cornflakes:       2.75,
+        ice_cream:        4.0} }
 
   context '#intialize' do
     it '#takes a hash as an argument' do
       expect{ Store.new({}) }.to_not raise_error
+    end
+  end
+
+  context '#inventory' do
+    it 'returns default inventory' do
+      expect(store.inventory).to eq inventory
     end
   end
 
