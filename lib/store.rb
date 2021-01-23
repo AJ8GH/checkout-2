@@ -4,9 +4,12 @@ class Store
     @items = inventory.merge(items)
   end
 
-  def items
-    inventory.map { |item, price| price.pounds  }
-    inventory
+  def price_list
+    price_list = {}
+    items.each do |item, price|
+      price_list[item.to_string] = price.pounds
+    end
+    price_list
   end
 
   def inventory
@@ -27,6 +30,6 @@ class Store
   end
 
   def price(item)
-    items[item.downcase.split.join('_').to_sym]
+    items[item.downcase.split.join('_').to_sym].pounds
   end
 end
