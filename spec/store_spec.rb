@@ -5,13 +5,13 @@ describe Store do
     end
   end
 
-  context '#inventory' do
+  context '#items' do
     it 'returns a hash' do
-      expect(Store.new.inventory.class).to eq Hash
+      expect(Store.new.items.class).to eq Hash
     end
 
     it 'contains default items' do
-      expect(!!Store.new.inventory.first).to be true
+      expect(!!Store.new.items.first).to be true
     end
   end
 end

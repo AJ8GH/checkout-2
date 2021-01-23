@@ -1,11 +1,11 @@
 class Store
-  attr_accessor :inventory
-  def initialize(inventory = {})
-    @inventory = defaults.merge(inventory)
+  attr_accessor :items
+  def initialize(items = {})
+    @items = inventory.merge(items)
   end
 
-  def defaults
-    defaults = {
+  def inventory
+    inventory = {
       milk:             0.5,
       cheese:           3.5,
       bread:            1,
