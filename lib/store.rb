@@ -10,6 +10,10 @@ class Store
     price_list
   end
 
+  def price(item)
+    items[item.downcase.split.join('_').to_sym].pounds
+  end
+
   def inventory
     inventory = {
       milk:             0.5,
@@ -25,9 +29,5 @@ class Store
       cornflakes:       2.75,
       ice_cream:        4.0
     }
-  end
-
-  def price(item)
-    items[item.downcase.split.join('_').to_sym].pounds
   end
 end
