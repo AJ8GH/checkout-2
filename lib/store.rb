@@ -6,7 +6,9 @@ class Store
 
   def inventory_to_items
     inventory_to_items = []
-    inventory.each { |name, price| inventory_to_items << create_item(name => price) }
+    inventory.each do |item|
+      item[:stock].times { inventory_to_items << create_item(item[:name] => item[:price]) }
+    end
     inventory_to_items
   end
 
@@ -15,20 +17,20 @@ class Store
   end
 
   def inventory
-    inventory = {
-      milk: 0.5,
-      cheese: 3.5,
-      bread: 1.0,
-      chicken: 5.0,
-      spinach: 1.0,
-      tomatoes: 0.8,
-      eggs: 2.5,
-      steak: 10.0,
-      salmon: 6.5,
-      onion: 0.25,
-      cornflakes: 2.75,
-      ice_cream: 4.0
-    }
+    inventory = [
+      {name: :milk,       price: 0.5,   stock: 30},
+      {name: :cheese,     price: 3.5,   stock: 40},
+      {name: :bread,      price: 1.0,   stock: 40},
+      {name: :chicken,    price: 5.0,   stock: 35},
+      {name: :spinach,    price: 1.0,   stock: 50},
+      {name: :tomatoes,   price: 0.8,   stock: 40},
+      {name: :eggs,       price: 2.5,   stock: 30},
+      {name: :steak,      price: 10.0,  stock: 15},
+      {name: :salmon,     price: 6.5,   stock: 20},
+      {name: :onion,      price: 0.25,  stock: 50},
+      {name: :cornflakes, price: 2.75,  stock: 25},
+      {name: :ice_cream,  price: 4.0,   stock: 20}
+    ]
   end
 
   def price_list
