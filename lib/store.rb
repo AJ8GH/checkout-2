@@ -6,7 +6,7 @@ class Store
 
   def inventory_to_items
     inventory_to_items = []
-    inventory.each { |name, price| inventory_to_items << Item.new(name: name, price: price) }
+    inventory.each { |name, price| inventory_to_items << create_item(name => price) }
     inventory_to_items
   end
 
