@@ -51,7 +51,11 @@ describe Store do
     end
 
     it 'stores the name correctly' do
+      expect(milk.name).to eq 'Milk'
+    end
 
+    it 'stores the price correctly' do
+      expect(milk.price).to eq '£0.50'
     end
   end
 end
