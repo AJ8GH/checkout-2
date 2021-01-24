@@ -42,4 +42,10 @@ describe Store do
       expect(store.price_list.first).to eq(['Milk', '£0.50'])
     end
   end
+
+  context 'create item' do
+    it 'intializes a new item' do
+      expect(store.create_item(milk: 0.5).class).to eq Item
+    end
+  end
 end

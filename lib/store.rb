@@ -10,6 +10,10 @@ class Store
     inventory_to_items
   end
 
+  def create_item(item)
+    Item.new(name: item.keys.pop, price: item.values.pop)
+  end
+
   def inventory
     inventory = {
       milk: 0.5,
