@@ -36,4 +36,8 @@ class Store
     items.each { |item| price_list[item.name] = item.price }
     price_list
   end
+
+  def item_price(item_name)
+    items.select { |item| item.name == item_name }.first.price
+  end
 end

@@ -58,4 +58,10 @@ describe Store do
       expect(milk.price).to eq '£0.50'
     end
   end
+
+  context 'item_price' do
+    it 'returns the formatted price for given item' do
+      expect(store.item_price('Milk')).to eq '£0.50'
+    end
+  end
 end
