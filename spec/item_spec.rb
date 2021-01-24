@@ -18,4 +18,10 @@ describe Item do
       expect(milk.price).to eq '£0.50'
     end
   end
+
+  context '#scan_price' do
+    it 'returns the numeric price' do
+      expect(milk.scan_price).to eq 0.5
+    end
+  end
 end
