@@ -10,6 +10,7 @@ class Shopper
   end
 
   def pick(item_name)
-    basket << items.select { |item| item.include?(item_name.to_symbol) }
+    selection = store.items.select { |item| item.name == item_name.capitalize }
+    basket << selection.first
   end
 end
