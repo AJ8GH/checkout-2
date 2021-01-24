@@ -1,12 +1,13 @@
 class Store
   attr_reader :items
   def initialize
-    @items = []
+    @items = inventory_to_items
   end
 
-  Item = Struct.new(:name, :price)
-
   def inventory_to_items
+    inventory_to_items = []
+    inventory.each { |name, price| inventory_to_items << Item.new(name, price) }
+    inventory_to_items
   end
 
   def inventory
@@ -25,6 +26,7 @@ class Store
       ice_cream: 4.0
     }
   end
+  
   def price_list
     price_list = {}
     items.each { |item, price| price_list[item.to_string] = price.pounds }
@@ -34,6 +36,4 @@ class Store
   def price(item)
     items[item.to_symbol].pounds
   end
-
-
 end
