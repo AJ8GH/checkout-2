@@ -1,5 +1,8 @@
 describe Checkout do
   let (:checkout_example) { Checkout.new([]) }
+  let (:shopper) { Shopper.new }
+  let (:milk) { Item.new(name: :milk, price: 0.5) }
+
   context '#initialize' do
     it 'takes a basket array as argument' do
       expect { Checkout.new([]) }.to_not raise_error
@@ -20,7 +23,6 @@ describe Checkout do
 
   context '#scan' do
     it 'removes the item from the basket' do
-      shopper = Shopper.new
       shopper.pick('milk', 'eggs', 'bread')
 
       checkout = shopper.checkout
@@ -31,11 +33,17 @@ describe Checkout do
     end
 
     it 'only removes 1 if there are multiples' do
-      shopper = Shopper.new
       shopper.pick('milk', 'milk', 'milk')
       checkout = shopper.checkout
       checkout.scan('milk')
       expect(checkout.basket.size).to eq 2
+    end
+
+    it 'adds scanned item prices to total' do
+      shopper.pick('milk', 'bread', 'milk')
+      checkout = shopper.checkout
+      checkout.scan('milk')
+      expect(checkout.total).to eq milk.scan_price
     end
   end
 end
