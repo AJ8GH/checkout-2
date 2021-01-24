@@ -12,8 +12,9 @@ class Shopper
   def pick(*item_name)
     item_name.each do
       selection = store.items.select { |item| item.name == item_name.first.capitalize }
-      basket << selection.first
+      basket << selection.first if selection.first
     end
+    basket.map { |item| "#{item.name}: #{item.price}"}
   end
 
   def checkout

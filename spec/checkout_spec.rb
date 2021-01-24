@@ -46,4 +46,12 @@ describe Checkout do
       expect(checkout.total).to eq milk.scan_price
     end
   end
+
+  context '#get_item_index' do
+    it 'finds index of first matching item name' do
+      shopper.pick('milk', 'bread', 'milk')
+      checkout = shopper.checkout
+      checkout.get_item_index('milk')
+    end
+  end
 end
