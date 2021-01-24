@@ -6,23 +6,23 @@ class Checkout
   end
 
   def total_price
-    scan_total.pounds
+    total.pounds
   end
 
   def scan(item_name)
     index = get_item_index(item_name)
-    price = get_item_price(index)
+    price = get_item_price(item_name)
     self.total += basket[index].scan_price
     remove_item(item_name)
-    "#{item_name.capitalize}: #{price}, total: #{total}"
+    "#{item_name.capitalize}: #{price}, total: #{total_price}"
   end
 
   def get_item_index(item_name)
     basket.find_index { |item| item.name == item_name.capitalize }
   end
 
-  def get_item_price(index)
-    basket[index].price
+  def get_item_price(item_name)
+    basket[get_item_index(item_name)].price
   end
 
   def remove_item(item_name)
