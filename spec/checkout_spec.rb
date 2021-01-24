@@ -11,4 +11,10 @@ describe Checkout do
       expect(checkout.basket).to eq []
     end
   end
+
+  context '#total' do
+    it 'shows the total price of all scanned items' do
+      expect(checkout.total).to eq 0
+    end
+  end
 end
