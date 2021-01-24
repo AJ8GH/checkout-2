@@ -1,3 +1,4 @@
+# Shopper can call the name and price methods on item objects and add them to their basket
 class Item
   attr_reader :name, :price, :scan_price
   def initialize(args = {})

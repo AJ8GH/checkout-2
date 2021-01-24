@@ -1,3 +1,4 @@
+# Checkout object used by shoppers to scan items and see total price
 class Checkout
   attr_accessor :basket, :total
   def initialize(basket)

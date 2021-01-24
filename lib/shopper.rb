@@ -1,3 +1,4 @@
+# Shopper object is able to pick items to add to their basket and instantiate a new checkout
 class Shopper
   attr_accessor :basket, :store
   def initialize
@@ -10,8 +11,8 @@ class Shopper
   end
 
   def pick(*item_name)
-    selection = store.items.select { |item| item.name == item_name.first.capitalize }
-    basket << selection.first if selection.first
+    item = store.items.select { |item| item.name == item_name.first.capitalize }.first
+    basket << item if item
     basket.map { |item| "#{item.name}: #{item.price}"}
   end
 

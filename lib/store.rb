@@ -1,3 +1,4 @@
+# Store object is intialized with a stock of inventory items
 class Store
   attr_reader :items
   def initialize
