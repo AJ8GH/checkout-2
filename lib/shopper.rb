@@ -10,13 +10,17 @@ class Shopper
     object_mart = Store.new
   end
 
-  def pick(*item_name)
-    item = store.items.select { |item| item.name == item_name.first.capitalize }.first
+  def pick(item_name)
+    item = store.items.select { |item| item.name == item_name.capitalize }.first
     basket << item if item
+    show_basket
+  end
+
+  def show_basket
     basket.map { |item| "#{item.name}: #{item.price}"}
   end
 
   def checkout
-    checkout = Checkout.new(basket)
+    Checkout.new(basket)
   end
 end
