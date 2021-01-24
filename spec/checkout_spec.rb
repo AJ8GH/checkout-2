@@ -62,4 +62,13 @@ describe Checkout do
       expect(checkout.get_item_price(2)).to eq milk.price
     end
   end
+
+  context '#remove_item' do
+    it 'removes desired item from basket' do
+      shopper.pick('milk', 'bread', 'milk')
+      checkout = shopper.checkout
+      checkout.remove_item('milk')
+      expect(checkout.basket.size).to eq 2
+    end
+  end
 end
