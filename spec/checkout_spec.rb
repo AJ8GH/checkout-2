@@ -22,8 +22,12 @@ describe Checkout do
     it 'removes the item from the basket' do
       shopper = Shopper.new
       shopper.pick('milk', 'eggs', 'bread')
+
       checkout = shopper.checkout
       expect(checkout.basket.size).to eq 3
+
+      checkout.scan('milk')
+      expect(checkout.basket.size).to eq 2
     end
   end
 end
