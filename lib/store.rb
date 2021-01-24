@@ -29,7 +29,7 @@ class Store
 
   def price_list
     price_list = {}
-    items.each { |item, price| price_list[item.to_string] = price.pounds }
+    items.each { |item| price_list[item.name] = item.price }
     price_list
   end
 end

@@ -36,4 +36,10 @@ describe Store do
       expect(!!store.items.first).to be true
     end
   end
+
+  context '#price_list' do
+    it 'returns list of items with formatted price' do
+      expect(store.price_list.first).to eq(['Milk', '£0.50'])
+    end
+  end
 end
