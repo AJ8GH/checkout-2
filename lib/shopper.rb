@@ -13,4 +13,8 @@ class Shopper
     selection = store.items.select { |item| item.name == item_name.capitalize }
     basket << selection.first
   end
+
+  def checkout
+    checkout = Checkout.new(basket)
+  end
 end

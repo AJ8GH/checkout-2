@@ -26,4 +26,10 @@ describe Shopper do
       expect(shopper.basket.size).to eq 1
     end
   end
+
+  context '#checkout' do
+    it 'intitializes a new checkout object' do
+      expect(shopper.checkout.class).to eq Checkout
+    end
+  end
 end
