@@ -6,7 +6,7 @@ class Checkout
   end
 
   def total_price
-    scan_total.poundss
+    scan_total.pounds
   end
 
   def scan(item_name)
@@ -28,5 +28,4 @@ class Checkout
   def remove_item(index)
     basket.delete_at(index)
   end
-
 end
