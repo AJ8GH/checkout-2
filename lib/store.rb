@@ -32,8 +32,4 @@ class Store
     items.each { |item, price| price_list[item.to_string] = price.pounds }
     price_list
   end
-
-  def price(item)
-    items[item.to_symbol].pounds
-  end
 end
