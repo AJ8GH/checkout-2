@@ -44,8 +44,14 @@ describe Store do
   end
 
   context 'create item' do
+    let (:milk) { store.create_item(milk: 0.5) }
+
     it 'intializes a new item' do
-      expect(store.create_item(milk: 0.5).class).to eq Item
+      expect(milk.class).to eq Item
+    end
+
+    it 'stores the name correctly' do
+
     end
   end
 end
