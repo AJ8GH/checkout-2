@@ -29,5 +29,13 @@ describe Checkout do
       checkout.scan('milk')
       expect(checkout.basket.size).to eq 2
     end
+
+    it 'only removes 1 if there are multiples' do
+      shopper = Shopper.new
+      shopper.pick('milk', 'milk', 'milk')
+      checkout = shopper.checkout
+      checkout.scan('milk')
+      expect(checkout.basket.size).to eq 2
+    end
   end
 end

@@ -17,6 +17,6 @@ class Shopper
   end
 
   def checkout
-    @checkout = Checkout.new(basket)
+    checkout = Checkout.new(basket)
   end
 end
