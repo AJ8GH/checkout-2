@@ -15,12 +15,12 @@ describe Store do
     ice_cream:        4.0}
   }
 
-  # context '#intialize' do
-  #   it 'creates a new instance of store' do
-  #     expect{ Store.new }.to_not raise_error
-  #   end
-  # end
-  #
+  context '#intialize' do
+    it 'creates a new instance of store' do
+      expect { Store.new }.to_not raise_error
+    end
+  end
+
   # context '#inventory' do
   #   it 'returns hash of default inventory items' do
   #     expect(store.inventory).to eq inventory

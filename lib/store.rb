@@ -6,7 +6,7 @@ class Store
 
   def inventory_to_items
     inventory_to_items = []
-    inventory.each { |name, price| inventory_to_items << Item.new(name, price) }
+    inventory.each { |name, price| inventory_to_items << Item.new(name: name, price: price) }
     inventory_to_items
   end
 
@@ -26,7 +26,7 @@ class Store
       ice_cream: 4.0
     }
   end
-  
+
   def price_list
     price_list = {}
     items.each { |item, price| price_list[item.to_string] = price.pounds }
