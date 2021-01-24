@@ -10,4 +10,11 @@ describe Shopper do
       expect(shopper.basket.empty?).to be true
     end
   end
+
+  context '#pick' do
+    it 'adds item to basket' do
+      shopper.pick('milk')
+      expect(shopper.basket.empty?).to be false
+    end
+  end
 end

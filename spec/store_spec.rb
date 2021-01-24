@@ -16,20 +16,20 @@ describe Store do
   }
 
   context '#intialize' do
-    it '#takes a hash as an argument' do
-      expect{ Store.new({}) }.to_not raise_error
+    it 'creates a new instance of store' do
+      expect{ Store.new }.to_not raise_error
     end
   end
 
-  # context '#inventory' do
-  #   it 'returns default inventory' do
-  #     expect(store.inventory).to eq inventory
-  #   end
-  # end
+  context '#inventory' do
+    it 'returns hash of default inventory items' do
+      expect(store.inventory).to eq inventory
+    end
+  end
 
   context '#items' do
-    it 'returns a hash' do
-      expect(store.items.class).to eq Hash
+    it 'returns an array' do
+      expect(store.items.class).to eq Array
     end
 
     it 'contains default items' do
